@@ -34,31 +34,84 @@ console.log(remove_character("character", 4))
 4)
  Create a function to find the largest of three given integers.
 */
+function largest_integer(x, y, z) 
+ {
+  max_val = 0;
+  if (x > y)
+  {
+    max_val = x;
+  } else
+  {
+    max_val = y;
+  }
+  if (z > max_val) 
+  {
+    max_val = z;
+  }
+  return max_val;
+}
 
+  console.log(largest_integer(12, 9, 15))
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
 */
+function in_range (a, b) {
+    if ((a >= 40 && a <= 60 && b >= 40 && b <= 60) 
+        || 
+        (a >= 70 && b <= 100 && b >= 70 && b <= 100))
+       {
+      return true;
+       } 
+      else 
+       {
+      return false;
+    }
+  }
 
+  console.log(in_range(35, 78))
+  console.log(in_range(45, 55))
+  
 /*
 6) 
-
 Create a function to create a new string of specified copies (positive number) of a given string.
 */
-
+function copy_string(str, copies) {
+    if (copies > 0) { 
+      return str.repeat(copies);
+    }
+    else {
+      return "";
+    }
+    // copies > 0 ? str.repeat(copies) : "";
+  }
+  
+  console.log(copy_string("Wako", 9))
 /*
-
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
+function new_or_los (city) {
+    if (city.startsWith("Los") || city.startsWith("New")){
+        return city 
+    } else {
+        return ""
+    }
+}
 
+console.log(new_or_los("Los Angeles"))
+console.log(new_or_los("New York"))
+console.log(new_or_los("Dubai"))
 /*
 8)
 Create a function to calculate the sum of three elements of a given array of integers of length 3.
 */
+function sum_of_three(arr) {
+    return arr[0] + arr[1] + arr[2];
+} 
 
+console.log(sum_of_three([100, 65, 80]))
 /*
-
 9)
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
