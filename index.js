@@ -115,48 +115,106 @@ console.log(sum_of_three([100, 65, 80]))
 9)
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
+function three_options_array(arr) {
+    if ((arr[0] === 1 || arr[0] === 3
+        ||
+        arr[1] === 1 || arr[1] === 3)) {
+        return "Valid array: " + true;
+    } else {
+        return "Invalid array" 
+    }
+}    
 
-/*
+console.log(three_options_array([1, 4]))
+console.log(three_options_array([5, 4]))
 
-10)
 
-Create a function to test whether an array of integers of length 2 does not contain 1 or a 3
+/* 10)
 
-11)
+Create a function to test whether an array of integers of length 2 does not contain 1 or a 3 */
+function no1sor3s(arr) {
+    if (arr.indexOf(1) == -1 && arr.indexOf(3) == -1){
+        return "No 1s or 3s";
+    } else {
+        return "Access denied";
+    }
+}    
+console.log(no1sor3s([1, 3]))
+console.log(no1sor3s([9, 5]))
+
+/* 11)
 
 Create a function to find the longest string from a given array of strings.
+ */
+function longest_string(arr) {
+    let max_str = arr[0].length;
+    let ans = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        const maxi = arr[i].length;
+        if (maxi > max_str) {
+            ans = arr[i];
+            max_str = maxi;
+        }
+    }
+    return ans;
+}
 
-12)
+console.log(longest_string(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner']))
 
+/* const findLongest = words => Math.max(...(words.map(el => el.length))); */
+
+/* 12)
 Create a function to find the types of a given angle.
 
 Types of angles:
     Acute angle: An angle between 0 and 90 degrees.
     Right angle: An 90 degree angle.
-    btuse angle: An angle between 90 and 180 degrees.
+    Obtuse angle: An angle between 90 and 180 degrees.
     Straight angle: A 180 degree angle.
+ */
+ 
+    function typeOfAngle (angle) {
 
-13)
+        switch (angle) {
+          case 'acute':
+              angle < 90? "Acute": "Not Acute" 
+            break;
+          case 'right':
+            angle === 90 ? "Right" : "Not Right";
+            break;
+          case 'obtuse':
+            angle < 180 ? "Obtuse" : "Not Obtuse";
+            break;
+          default:
+            angle = "Straight";
+        }
+    }
 
-Create a function to find the index of the greatest element of a given array of integers
+    console.log(typeOfAngle(90))
 
-14)
+    //DISPLAYING UNDEFINED...ASK LIDIA ABOUT THIS 
+/* 13)
 
-Create a function to get the largest even number from an array of integers.
+Create a function to find the index of the greatest element of a given array of integers */
 
-16)
+/* 14)
 
-Create a function to check from two given integers, whether one is positive and another one is negative.
+Create a function to get the largest even number from an array of integers. */
 
-17)
+/* 16)
 
-Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case. 
+Create a function to check from two given integers, whether one is positive and another one is negative. */
 
-18)
+/* 17)
 
-Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case.  */
 
-19)
+/* 18)
+
+Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80. */
+
+
+/* 19)
 
 Create a function to convert a number to a string, the contents of which depend on the number's factors. Follow next example:
 
@@ -170,9 +228,8 @@ this would be a simple "Stefano".
 30's factors are 1, 2, 3, 5, 6, 10, 15, 30.
 this would be a "DiegoRiccardo".
 34 has four factors: 1, 2, 17, and 34.
-this would be "34".
+this would be "34". */
 
-20)
-Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
+/* 20)
+Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC */
 
-*/
