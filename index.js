@@ -104,7 +104,7 @@ function copy_string(str, copies) {
     // copies > 0 ? str.repeat(copies) : "";
   }
   
-  console.log(copy_string("Wako", 9))
+  // console.log(copy_string("Wako", 9))
 /*
 
 7)
@@ -151,15 +151,17 @@ const includesNum = (arr) => arr.includes(1) || arr.includes(3);
 /* 10)
 
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3 */
-function no1sor3s(arr) {
+/* function no1sor3s(arr) {
     if (arr.indexOf(1) == -1 && arr.indexOf(3) == -1){
         return "No 1s or 3s";
     } else {
         return "Access denied";
     }
-}    
-// console.log(no1sor3s([1, 3]))
-// console.log(no1sor3s([9, 5]))
+}   */  
+
+const does_not_include = (arr) => !includesNum(arr); //takes array from Q9 and cleverly changes it's purpose with "not"
+// console.log(does_not_include([1, 3]))
+// console.log(does_not_include([9, 5]))
 
 /* 11)
 
@@ -180,7 +182,14 @@ function longest_string(arr) {
 
 // console.log(longest_string(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner']))
 
-/* const findLongest = words => Math.max(...(words.map(el => el.length))); */
+/* const findLongestStr = (arr) =>
+  arr
+    .map((str) => ({ length: str.length, str }))
+    .sort((a, b) => a.length - b.length)[arr.length - 1].str; */
+
+    //takes arr passed as argument and a couple methods are applied to it in a chain (map and sort)
+    // .map() creates a new array populated with the results of calling a provided function on every element in the calling array
+    // .sort() sorts the elements of an array in place and returns the sorted array. The default sort order is ascending
 
 /* 12)
 Create a function to find the types of a given angle.
@@ -207,14 +216,23 @@ Types of angles:
           default:
             angle = "Straight";
         }
+        return angle
     }
 
-    // console.log(typeOfAngle(90))
+    console.log(typeOfAngle(90))
 
-    //DISPLAYING UNDEFINED...ASK LIDIA ABOUT THIS 
+    //GOING STRAIGHT TO DEFAULT CASE...ASK LIDIA ABOUT THIS 
+
 /* 13)
 
 Create a function to find the index of the greatest element of a given array of integers */
+const findGreatest = (arr) => {
+  const temp = [...arr];
+  const sorted = temp.sort((a, b) => a - b);
+  return arr.indexOf(sorted[arr.length - 1]);
+}
+// temp variable stores arr of any length while sorted stores the result of sorting the array into ascending order
+// finally we return the index of the biggest integer by calling indexOf() on the last element of the sorted array  
 
 /* 14)
 
