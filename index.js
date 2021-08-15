@@ -3,9 +3,9 @@
 Create a function to calculate the sum of the two given integers. If the two values are same, then returns triple their sum.
 */
 function sumTotal(a, b) {
-    return a + b
+   return a === b ? (a + b) * 3 : a + b
 }
-console.log(sumTotal(5, 10))
+// console.log(sumTotal(10, 10))
 /*
 2)
 Create a function to check two given numbers and return true if one of the number is 50 or if their sum is 50.
@@ -17,7 +17,11 @@ function isFifty (n1, n2) {
         return false
     }
 }
-console.log (isFifty(10, 40))
+// console.log (isFifty(10, 30))
+
+/* Arrow Fx notation
+const isFifty = (num1, num2) =>
+  num1 === 50 || num2 === 50 || num1 + num2 === 50; */
 /*
 3)
 Create a function to remove a character at the specified position of a given string and return the new string.
@@ -27,14 +31,18 @@ function remove_character(str, char_pos) {
     part2 = str.substring(char_pos + 1, str.length);
     return (part1 + part2);
 }
+
+/* const removeChar = (pos, str) => str.slice(0, pos) + str.slice(pos + 1); 
+same thing but without the need for part1 and 2 variables */
  
-console.log(remove_character("character", 4))
+// console.log(remove_character("me", 1))
 /*
 
 4)
  Create a function to find the largest of three given integers.
 */
-function largest_integer(x, y, z) 
+//Long way around 
+/* function findLargestInt(x, y, z) 
  {
   max_val = 0;
   if (x > y)
@@ -49,9 +57,13 @@ function largest_integer(x, y, z)
     max_val = z;
   }
   return max_val;
-}
+} */
 
-  console.log(largest_integer(12, 9, 15))
+//Smooth way around using .sort() method
+
+const findLargestInt = /* function accepts an array of arguments*/ (...args) => args.sort((a, b) => /*this sorts a numerical array into ascending order >>*/ a - b)[args.length - 1]; /* finally we access the last element in the arr as it will be the largest num */
+
+  // console.log(findLargestInt(12, 9, 15))
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
@@ -69,8 +81,14 @@ function in_range (a, b) {
     }
   }
 
-  console.log(in_range(35, 78))
-  console.log(in_range(45, 55))
+  /* const checkRange = (a, b) =>
+  (a >= 40 && a <= 60) ||
+  (a >= 70 && a <= 100) ||
+  (b >= 40 && b <= 60) ||
+  (b >= 70 && b <= 100); */
+
+  // console.log(in_range(45, 106))
+  // console.log(in_range(45, 55))
   
 /*
 6) 
@@ -88,21 +106,25 @@ function copy_string(str, copies) {
   
   console.log(copy_string("Wako", 9))
 /*
+
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
 function new_or_los (city) {
     if (city.startsWith("Los") || city.startsWith("New")){
-        return city 
+        return city
     } else {
         return ""
     }
 }
 
-console.log(new_or_los("Los Angeles"))
-console.log(new_or_los("New York"))
-console.log(new_or_los("Dubai"))
+// const startsWith = (str) => str.startsWith("Los") || str.startsWith("New"); // => only works like this if the function is fruitfull. Because then the return keyword is not needed
+
+// console.log(new_or_los("Los Angeles"))
+// console.log(new_or_los("New York"))
+// console.log(new_or_los("Dubai"))
 /*
+
 8)
 Create a function to calculate the sum of three elements of a given array of integers of length 3.
 */
@@ -110,23 +132,20 @@ function sum_of_three(arr) {
     return arr[0] + arr[1] + arr[2];
 } 
 
-console.log(sum_of_three([100, 65, 80]))
+// .reduce() method takes an array and reduces its contents into a single value
+// it accepts 4 parameters Acc, curr, current index and source array. In this case we specified the index at which we wanted to process to begin 
+// const totalSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
+
+// console.log(sum_of_three([100, 65, 80]))
 /*
+
 9)
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
-function three_options_array(arr) {
-    if ((arr[0] === 1 || arr[0] === 3
-        ||
-        arr[1] === 1 || arr[1] === 3)) {
-        return "Valid array: " + true;
-    } else {
-        return "Invalid array" 
-    }
-}    
+const includesNum = (arr) => arr.includes(1) || arr.includes(3);
 
-console.log(three_options_array([1, 4]))
-console.log(three_options_array([5, 4]))
+// console.log(three_options_array([1, 4]))
+// console.log(three_options_array([5, 4]))
 
 
 /* 10)
@@ -139,8 +158,8 @@ function no1sor3s(arr) {
         return "Access denied";
     }
 }    
-console.log(no1sor3s([1, 3]))
-console.log(no1sor3s([9, 5]))
+// console.log(no1sor3s([1, 3]))
+// console.log(no1sor3s([9, 5]))
 
 /* 11)
 
@@ -159,7 +178,7 @@ function longest_string(arr) {
     return ans;
 }
 
-console.log(longest_string(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner']))
+// console.log(longest_string(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner']))
 
 /* const findLongest = words => Math.max(...(words.map(el => el.length))); */
 
@@ -190,7 +209,7 @@ Types of angles:
         }
     }
 
-    console.log(typeOfAngle(90))
+    // console.log(typeOfAngle(90))
 
     //DISPLAYING UNDEFINED...ASK LIDIA ABOUT THIS 
 /* 13)
