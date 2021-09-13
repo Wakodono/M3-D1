@@ -1,39 +1,31 @@
 /*
 1)
-Create a function to calculate the sum of the two given integers. If the two values are same, then returns triple their sum.
+Create a function to calculate the sum of the two given integers. If the two values are same, return triple their sum.
 */
-function sumTotal(a, b) {
+/* function sumTotal(a, b) {
   return a === b ? (a + b) * 3 : a + b;
-}
-// console.log(sumTotal(10, 10))
+} */
+
+let sumTotal = (a, b) => a === b ? (a + b) * 3 : a + b
+
+console.log(sumTotal(10, 10))
 /*
 2)
 Create a function to check two given numbers and return true if one of the number is 50 or if their sum is 50.
 */
-function isFifty(n1, n2) {
-  if (n1 === 50 || n2 === 50 || n1 + n2 == 50) {
-    return true;
-  } else {
-    return false;
-  }
-}
-// console.log (isFifty(10, 30))
 
-/* Arrow Fx notation
 const isFifty = (num1, num2) =>
-  num1 === 50 || num2 === 50 || num1 + num2 === 50; */
+  num1 === 50 || num2 === 50 || num1 + num2 === 50;
+
+console.log(isFifty(50, 50))
+
 /*
 3)
 Create a function to remove a character at the specified position of a given string and return the new string.
 */
-function remove_character(str, char_pos) {
-  part1 = str.substring(0, char_pos);
-  part2 = str.substring(char_pos + 1, str.length);
-  return part1 + part2;
-}
 
-/* const removeChar = (pos, str) => str.slice(0, pos) + str.slice(pos + 1); 
-same thing but without the need for part1 and 2 variables */
+const removeChar = (pos, str) => str.slice(0, pos) + str.slice(pos + 1); 
+console.log(removeChar(3, "Anindo"))
 
 // console.log(remove_character("me", 1))
 /*
@@ -68,7 +60,7 @@ const findLargestInt = /* function accepts an array of arguments*/ (...args) =>
     args.length - 1
   ]; /* finally we access the last element in the arr as it will be the largest num */
 
-// console.log(findLargestInt(12, 9, 15))
+console.log(findLargestInt(12, 9, 15))
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
@@ -76,7 +68,7 @@ Create a function to check whether two numbers are in range 40..60 or in the ran
 function in_range(a, b) {
   if (
     (a >= 40 && a <= 60 && b >= 40 && b <= 60) ||
-    (a >= 70 && b <= 100 && b >= 70 && b <= 100)
+    (a >= 70 && a <= 100 && b >= 70 && b <= 100)
   ) {
     return true;
   } else {
@@ -90,55 +82,40 @@ function in_range(a, b) {
   (b >= 40 && b <= 60) ||
   (b >= 70 && b <= 100); */
 
-// console.log(in_range(45, 106))
-// console.log(in_range(45, 55))
+console.log(in_range(45, 106))
+console.log(in_range(45, 55))
 
 /*
 6) 
 Create a function to create a new string of specified copies (positive number) of a given string.
 */
-function copy_string(str, copies) {
-  if (copies > 0) {
-    return str.repeat(copies);
-  } else {
-    return "";
-  }
-  // copies > 0 ? str.repeat(copies) : "";
+const copyString = (str, copies) => {
+   copies > 0 ? str.repeat(copies) : "";
 }
 
-// console.log(copy_string("Wako", 9))
+console.log(copyString("Wako", 9))
 /*
 
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
-function new_or_los(city) {
-  if (city.startsWith("Los") || city.startsWith("New")) {
-    return city;
-  } else {
-    return "";
-  }
-}
 
-// const startsWith = (str) => str.startsWith("Los") || str.startsWith("New"); // => only works like this if the function is fruitfull. Because then the return keyword is not needed
+const eastOrWest = (str) => startsWith("Los") || startsWith("New"); // => only works like this if the function is fruitfull. Because then the return keyword is not needed
 
-// console.log(new_or_los("Los Angeles"))
-// console.log(new_or_los("New York"))
-// console.log(new_or_los("Dubai"))
+console.log(eastOrWest("Los Angeles"))
+console.log(eastOrWest("New York"))
+console.log(eastOrWest("Dubai"))
 /*
 
 8)
 Create a function to calculate the sum of three elements of a given array of integers of length 3.
 */
-function sum_of_three(arr) {
-  return arr[0] + arr[1] + arr[2];
-}
 
 // .reduce() method takes an array and reduces its contents into a single value
 // it accepts 4 parameters Acc, curr, current index and source array. In this case we specified the index at which we wanted to process to begin
-// const totalSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
+const totalSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
 
-// console.log(sum_of_three([100, 65, 80]))
+console.log(totalSum([100, 65, 80]))
 /*
 
 9)
@@ -146,19 +123,12 @@ Create a function to test whether an array of integers of length 2 contains 1 or
 */
 const includesNum = (arr) => arr.includes(1) || arr.includes(3);
 
-// console.log(three_options_array([1, 4]))
-// console.log(three_options_array([5, 4]))
+console.log(includesNum([1, 4]))
+console.log(includesNum([5, 4]))
 
 /* 10)
 
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3 */
-/* function no1sor3s(arr) {
-    if (arr.indexOf(1) == -1 && arr.indexOf(3) == -1){
-        return "No 1s or 3s";
-    } else {
-        return "Access denied";
-    }
-}   */
 
 const does_not_include = (arr) => !includesNum(arr); //takes array from Q9 and cleverly changes it's purpose with "not"
 // console.log(does_not_include([1, 3]))
@@ -168,25 +138,27 @@ const does_not_include = (arr) => !includesNum(arr); //takes array from Q9 and c
 
 Create a function to find the longest string from a given array of strings.
  */
-function longest_string(arr) {
-  let max_str = arr[0].length;
-  let ans = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    const maxi = arr[i].length;
-    if (maxi > max_str) {
-      ans = arr[i];
-      max_str = maxi;
-    }
-  }
-  return ans;
-}
+// function longest_string(arr) {
+//   let max_str = arr[0].length;
+//   let ans = arr[0];
+//   for (let i = 1; i < arr.length; i++) {
+//     const maxi = arr[i].length;
+//     if (maxi > max_str) {
+//       ans = arr[i];
+//       max_str = maxi;
+//     }
+//   }
+//   return ans;
+// }
 
 // console.log(longest_string(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner']))
 
-/* const findLongestStr = (arr) =>
+const findLongestStr = (arr) =>
   arr
     .map((str) => ({ length: str.length, str }))
-    .sort((a, b) => a.length - b.length)[arr.length - 1].str; */
+    .sort((a, b) => a.length - b.length)[arr.length - 1].str;
+
+findLongestStr(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner'])
 
 //takes arr passed as argument and a couple methods are applied to it in a chain (map and sort)
 // .map() creates a new array populated with the results of calling a provided function on every element in the calling array
@@ -202,7 +174,7 @@ Types of angles:
     Straight angle: A 180 degree angle.
  */
 
-function typeOfAngle(angle) {
+const typeOfAngle = (angle) => {
   switch (angle) {
     case "acute":
       angle < 90 ? "Acute" : "Not Acute";
@@ -219,9 +191,7 @@ function typeOfAngle(angle) {
   return angle;
 }
 
-console.log(typeOfAngle(90));
-
-//GOING STRAIGHT TO DEFAULT CASE...ASK LIDIA ABOUT THIS
+console.log(typeOfAngle(90))
 
 /* 13)
 
@@ -242,6 +212,8 @@ const largestEvenNumber = (arr) => {
   const evenNums = arr.filter((n) => n % 2 === 0);
   return evenNums.sort((a, b) => a - b)[evenNums.length - 1];
 };
+
+largestEvenNumber([2, 24,567, 680, 120])
 
 /* 16)
 
