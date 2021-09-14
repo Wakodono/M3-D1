@@ -6,9 +6,9 @@ Create a function to calculate the sum of the two given integers. If the two val
   return a === b ? (a + b) * 3 : a + b;
 } */
 
-let sumTotal = (a, b) => a === b ? (a + b) * 3 : a + b
+let sumTotal = (a, b) => (a === b ? (a + b) * 3 : a + b);
 
-console.log(sumTotal(10, 10))
+console.log(sumTotal(10, 10));
 /*
 2)
 Create a function to check two given numbers and return true if one of the number is 50 or if their sum is 50.
@@ -17,15 +17,15 @@ Create a function to check two given numbers and return true if one of the numbe
 const isFifty = (num1, num2) =>
   num1 === 50 || num2 === 50 || num1 + num2 === 50;
 
-console.log(isFifty(50, 50))
+console.log(isFifty(50, 50));
 
 /*
 3)
 Create a function to remove a character at the specified position of a given string and return the new string.
 */
 
-const removeChar = (pos, str) => str.slice(0, pos) + str.slice(pos + 1); 
-console.log(removeChar(3, "Anindo"))
+const removeChar = (pos, str) => str.slice(0, pos) + str.slice(pos + 1);
+console.log(removeChar(3, "Anindo"));
 
 // console.log(remove_character("me", 1))
 /*
@@ -60,7 +60,7 @@ const findLargestInt = /* function accepts an array of arguments*/ (...args) =>
     args.length - 1
   ]; /* finally we access the last element in the arr as it will be the largest num */
 
-console.log(findLargestInt(12, 9, 15))
+console.log(findLargestInt(12, 9, 15));
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
@@ -82,29 +82,29 @@ function in_range(a, b) {
   (b >= 40 && b <= 60) ||
   (b >= 70 && b <= 100); */
 
-console.log(in_range(45, 106))
-console.log(in_range(45, 55))
+console.log(in_range(45, 106));
+console.log(in_range(45, 55));
 
 /*
 6) 
-Create a function to create a new string of specified copies (positive number) of a given string.
+Create a function to create a new string of specified copies of a given string.
 */
 const copyString = (str, copies) => {
-   copies > 0 ? str.repeat(copies) : "";
-}
+  return copies > 0 ? str.repeat(copies) : "";
+};
 
-console.log(copyString("Wako", 9))
+console.log(copyString("Wako", 9));
 /*
 
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
 
-const eastOrWest = (str) => startsWith("Los") || startsWith("New"); // => only works like this if the function is fruitfull. Because then the return keyword is not needed
+const cityName = (str) => str.startsWith("Los") || str.startsWith("New"); // => only works like this if the function is fruitfull. Because then the return keyword is not needed
 
-console.log(eastOrWest("Los Angeles"))
-console.log(eastOrWest("New York"))
-console.log(eastOrWest("Dubai"))
+console.log(cityName("Los Angeles"));
+console.log(cityName("Dubai"));
+console.log(cityName("New York"));
 /*
 
 8)
@@ -115,7 +115,7 @@ Create a function to calculate the sum of three elements of a given array of int
 // it accepts 4 parameters Acc, curr, current index and source array. In this case we specified the index at which we wanted to process to begin
 const totalSum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
 
-console.log(totalSum([100, 65, 80]))
+console.log(totalSum([100, 65, 80]));
 /*
 
 9)
@@ -123,8 +123,8 @@ Create a function to test whether an array of integers of length 2 contains 1 or
 */
 const includesNum = (arr) => arr.includes(1) || arr.includes(3);
 
-console.log(includesNum([1, 4]))
-console.log(includesNum([5, 4]))
+console.log(includesNum([1, 4]));
+console.log(includesNum([5, 4]));
 
 /* 10)
 
@@ -158,7 +158,7 @@ const findLongestStr = (arr) =>
     .map((str) => ({ length: str.length, str }))
     .sort((a, b) => a.length - b.length)[arr.length - 1].str;
 
-findLongestStr(['Timmy', 'Turner', 'Wishing', 'For', 'a', 'Burner'])
+findLongestStr(["Timmy", "Turner", "Wishing", "For", "a", "Burner"]);
 
 //takes arr passed as argument and a couple methods are applied to it in a chain (map and sort)
 // .map() creates a new array populated with the results of calling a provided function on every element in the calling array
@@ -189,9 +189,9 @@ const typeOfAngle = (angle) => {
       angle = "Straight";
   }
   return angle;
-}
+};
 
-console.log(typeOfAngle(90))
+console.log(typeOfAngle(90));
 
 /* 13)
 
@@ -213,7 +213,7 @@ const largestEvenNumber = (arr) => {
   return evenNums.sort((a, b) => a - b)[evenNums.length - 1];
 };
 
-largestEvenNumber([2, 24,567, 680, 120])
+largestEvenNumber([2, 24, 567, 680, 120]);
 
 /* 16)
 
@@ -267,7 +267,7 @@ const numToString = (num) => {
   //finallly as always return result of function otherwise console logging will return undefined
 };
 
-// console.log(numToString(54))
+console.log(numToString(54))
 
 /* 20)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC */
@@ -280,3 +280,88 @@ const phraseToAcronym = (str) =>
     //convert first letter of each word in array to uppercase and return a new array of uppercase letters
     .join("");
 // join array into a new single string
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
+// ADVANCED HW
+
+/* 1. Given a string (as a parameter), return the character that is most commonly used. */
+
+const commonChar = (str) => {
+  let charMap = {};
+
+  for (let char of text) {
+    if (charMap.hasOwnProperty(char)) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  }
+};
+
+/* 2. Check if two strings (passed as parameters) are anagrams of each other. 
+    Do not consider spaces or punctuation, make the whole word lower case. 
+    Return `true` if the words are anagram, return `false` if they aren't. */
+
+/* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
+    Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
+*/
+
+/* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
+
+/* 5. Given an integer (as parameter), return an integer which digitas are the same as the original number, but reversed.
+    Ex: 189 â‡’ 981 */
+
+/* 6. Write a function that takes a positive number X as a parameter. The function should output (as console.log) a step shaped string with X level usign the `#` character. Make sure the steps are on the right hand side:
+
+	2 steps:
+        '# '
+        '##'
+    3 steps:
+        '#  '
+        '## '
+        '###'
+    4 steps:
+        '#   '
+        '##  '
+        '### '
+        '####'
+*/
+
+/* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
+"hello" â‡’ "olleh" */
+
+/* 8. Create a function that takes an array and a "chuck size" as parameters. 
+    Divide the array into subarrays with the "chunk size" as lenght: 
+    array: [1, 2, 3, 4], chunk size: 2 â†’ [[ 1, 2], [3, 4]]
+    array: [1, 2, 3, 4, 5], chunk size: 4 â†’ [[ 1, 2, 3, 4], [5]]
+*/
+
+/* 9. Write a function that accepts a positive number X as parameter. 
+The function should console.log a pyramid shape with N levels built using the `#` character. 
+Example with X = 3
+
+```
+ '  #  '
+ ' ### '
+ '#####'
+```
+*/
+
+/* 10. Write a function that accepts an integer N and returns a NxN spiral matrix:
+Ex: 
+
+N = 2
+[[1, 2],
+[4, 3]]
+N = 3
+[[1, 2, 3],
+[8, 9, 4],
+[7, 6, 5]]
+N = 4
+[[1, 2, 3, 4],
+[12, 13, 14, 5],
+[11, 16, 15, 6],
+[10,  9,  8, 7]]
+
+*/
